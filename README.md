@@ -4,8 +4,6 @@
 
 ## Structure
 
-
-
 ## Resources
 
 ### Coding Challenges
