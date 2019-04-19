@@ -40,5 +40,5 @@ if __name__ == '__main__':
     import sys
     str1 = sys.argv[1]  # Ignore script file name
     str2 = sys.argv[2]
-    if len(str1) > 0 and len(str2) > 0:
+    if len(str1) > 0 or len(str2) > 0:
         print(one_away(str1, str2))
