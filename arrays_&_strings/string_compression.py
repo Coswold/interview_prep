@@ -14,7 +14,8 @@ def string_compress_faulty(string):
     else:
         return string
 
-"""Second Implementation"""
+"""Second Implementation
+O(n) Time Complexity"""
 def string_compress(string):
     compression = ""
     i = 0
