@@ -23,6 +23,13 @@ def is_rotation(str1, str2):
             start += 1
         return True
 
+"""Answer given is_substring() function"""
+def is_rotation(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    s1s1 = s1 + s1
+    return is_substring(s1s1, s2)
+
 if __name__ == '__main__':
     import sys
     str1 = sys.argv[1]
