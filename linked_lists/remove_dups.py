@@ -1,3 +1,4 @@
+"""Q2.1"""
 from linked_list import LinkedList
 
 def remove_dups(linked_list):
