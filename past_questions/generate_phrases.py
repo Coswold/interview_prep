@@ -8,6 +8,7 @@ Input: ["hello over there",
 
 Output: ["you there, hello over there",
         "writing code rocks"]
+"""
 
 def generate_phrases(phrases):
     first_word = {}
