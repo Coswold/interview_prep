@@ -1,6 +1,7 @@
 """Q2.4"""
 from linked_list import LinkedList
 
+"""Slow run time: O(n^2)"""
 def partition (linked_list, part):
     node = linked_list.head
     while node is not None:
@@ -16,6 +17,7 @@ def partition (linked_list, part):
         node = node.next
     return linked_list
 
+"""Better runtime: O(n), but worse space complexity"""
 def optimized_partition (linked_list, part):
     new_ll = LinkedList()
     search = linked_list.head
