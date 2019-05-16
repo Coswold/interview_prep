@@ -26,8 +26,8 @@ def sum_lists(ll1, ll2, carry=0):
 
 
 if __name__ == '__main__':
-    ll1 = LinkedList([0, 5])
-    ll2 = LinkedList([4])
+    ll1 = LinkedList([0, 5, 4])
+    ll2 = LinkedList([0, 5, 4])
     result = sum_lists(ll1.head, ll2.head)
     while result != None:
         print(result.data)
