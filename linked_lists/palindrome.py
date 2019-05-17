@@ -24,7 +24,7 @@ def is_palindrome(node):
         return True
     return False
 
-"""Refactored Solution"""
+"""Refactored Solution O(n)"""
 def is_palindrome_o(node):
     fast = node
     stack = []
