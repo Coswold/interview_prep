@@ -1,5 +1,5 @@
 """Q2.7"""
-from linked_list import LinkedList, Node
+from linked_list import Node
 
 def intersection(ll1, ll2):
     current1 = ll1
@@ -45,7 +45,7 @@ def intersection(ll1, ll2):
 
 if __name__ == '__main__':
     # 1 -> 2 -> 3 -> 8
-    # 1 -> 4 -> 8 -> 16 ^ 3
+    # 1 -> 4 -> 8 -> 16 ^ 2
     node1 = Node(1)
     node1.next = Node(2)
     node1.next.next = Node(3)
@@ -54,5 +54,5 @@ if __name__ == '__main__':
     node2.next = Node(4)
     node2.next.next = Node(8)
     node2.next.next = Node(16)
-    node2.next.next.next = node1.next.next
+    node2.next.next.next = node1.next
     print(intersection(node1, node2))
