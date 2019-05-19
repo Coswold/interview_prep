@@ -12,7 +12,7 @@ def loop_detection(node):
         node = node.next
     return None
 
-"""Optimized solution (broken)"""
+"""Optimized solution"""
 def loop_detection2(node):
     slow = node
     fast = node
