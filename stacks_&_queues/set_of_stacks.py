@@ -1,3 +1,5 @@
+"""Q3.3"""
+
 class SetOfStacks(object):
 
     def __init__(self, cap=4, iterable=None):
@@ -21,9 +23,20 @@ class SetOfStacks(object):
             self.current -= 1
         return item
 
+    def pop_substack(self, stack_i):
+        if self.stacks[stack_i]:
+            item = self.stacks[stack_i].pop()
+        if len(self.stacks[stack_i]) == 0:
+            self.stacks.pop(stack_i)
+        return item
+
 
 if __name__ == '__main__':
-    stack = SetOfStacks(4, [5, 3, 6, 8, 1, 8])
+    stack = SetOfStacks(4, [5, 3, 6, 8, 1, 16, 8, 10, 22, 29, 16, 44])
     print(stack.stacks)
-    print(stack.pop())
-    stack.push(0.5)
+    stack.push(39)
+    print(stack.pop_substack(1))
+    print(stack.pop_substack(1))
+    print(stack.pop_substack(1))
+    print(stack.pop_substack(1))
+    print(stack.stacks)
