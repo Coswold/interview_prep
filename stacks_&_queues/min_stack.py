@@ -58,3 +58,5 @@ if __name__ == '__main__':
     print(stack.peek_min())
     stack.push(0.5)
     print(stack.peek_min())
+    print(stack.pop())
+    print(stack.peek_min())
