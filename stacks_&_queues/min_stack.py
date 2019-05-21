@@ -26,9 +26,35 @@ class MinStack(object):
     def peek_min(self):
         return self.min
 
+
+"""Use two stacks to keep track of mins as well"""
+class MinStack2(object):
+
+    def __init__(self, iterable=None):
+        self.stack = []
+        self.min = []
+        if iterable:
+            for item in iterable:
+                self.push(item)
+
+    def push(self, item):
+        if len(self.min) == 0 or item < self.min[-1]:
+            self.min.append(item)
+        self.stack.append(item)
+
+    def pop(self):
+        item = self.stack.pop()
+        if item == self.min[-1]:
+            self.min.pop()
+        return item
+
+    def peek_min(self):
+        if len(self.min) > 0:
+            return self.min[-1]
+
+
 if __name__ == '__main__':
-    stack = MinStack([5, 3, 6, 8, 1])
-    print(stack.pop())
+    stack = MinStack2([5, 3, 6, 8, 1])
     print(stack.peek_min())
     stack.push(0.5)
     print(stack.peek_min())
