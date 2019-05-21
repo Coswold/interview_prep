@@ -10,8 +10,13 @@ class SetOfStacks(object):
             for item in iterable:
                 self.push(item)
 
-    def push(self, item):
+    def __is_full__(self, stack_i):
         if len(self.stacks[self.current]) >= self.cap:
+            return True
+        return False
+
+    def push(self, item):
+        if self.__is_full__(self.current):
             self.stacks.append([])
             self.current += 1
         self.stacks[self.current].append(item)
@@ -24,8 +29,9 @@ class SetOfStacks(object):
         return item
 
     def pop_substack(self, stack_i):
-        if self.stacks[stack_i]:
-            item = self.stacks[stack_i].pop()
+        if stack_i > len(self.stacks):
+            raise ValueError('Stack does not exist')
+        item = self.stacks[stack_i].pop()
         if len(self.stacks[stack_i]) == 0:
             self.stacks.pop(stack_i)
         return item
@@ -35,8 +41,9 @@ if __name__ == '__main__':
     stack = SetOfStacks(4, [5, 3, 6, 8, 1, 16, 8, 10, 22, 29, 16, 44])
     print(stack.stacks)
     stack.push(39)
-    print(stack.pop_substack(1))
-    print(stack.pop_substack(1))
+    print(stack.pop_substack(0))
+    print(stack.pop_substack(0))
+    print(stack.stacks)
     print(stack.pop_substack(1))
     print(stack.pop_substack(1))
     print(stack.stacks)
