@@ -23,10 +23,8 @@ class Graph(object):
     def __reset__(self, node):
         node.visited = False
         for key, value in node.following.items():
-            print(key, value)
             if value.visited == True:
                 self.__reset__(value)
-
 
     def insert(self, path):
         if self.root.data == None:
@@ -60,16 +58,14 @@ class Graph(object):
     def search_path(self, p1, p2):
         p1 = self.search(p1)
         p2 = self.search(p2)
-        print(p1, p2)
         if p1 != None and p2 != None:
             item = []
             self._search_data(p1, p2.data, item.append)
             self.__reset__(self.root)
             if len(item) > 0:
                 return True
-            else:
-                return False
-
+        else:
+            return False
 
 
 
@@ -79,4 +75,4 @@ if __name__ == '__main__':
     graph.insert(['a', 'b', 'z', 'a'])
     print(graph.root.following['b'].following['z'].following)
     print(graph.search('b'))
-    print(graph.search_path('z', 'a'))
+    print(graph.search_path('a', 'z'))
