@@ -31,17 +31,19 @@ class Graph(object):
                 current.following[i] = Node(i)
             current = current.following[i]
 
-    # def search_data(self, node, data):
-    #     if node.data == None:
-    #         return
-    #     if node.data == data:
-    #         return node
-    #     node.visited = True
-    #     for i in node.following.items():
-    #         print(i)
-    #         if i.visited == False:
-    #             self.search(i, data)
-    #     return None
+    def search(self, data):
+        item = []
+        self._search_data(self.root, data, item.append)
+        return item[0]
+
+    def _search_data(self, node, data, visit):
+        if node.data == data:
+            visit(node)
+            return
+        node.visited = True
+        for key, value in node.following.items():
+            if value.visited == False:
+                self._search_data(value, data, visit)
 
     # def search_path(self, p1, p2):
     #     current = self.root
@@ -54,4 +56,4 @@ if __name__ == '__main__':
     graph.insert(['a', 'b', 'c'])
     graph.insert(['a', 'b', 'z', 'a'])
     print(graph.root.following['b'].following['z'].following)
-    #print(graph.search_data(graph.root, 'z'))
+    print(graph.search('z'))
