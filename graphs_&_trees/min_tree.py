@@ -23,7 +23,8 @@ class BinaryNode(object):
         elif right1 >= left1:
             return right1
 
-"""MinTree takes an array and finds the minimum height tree possible"""
+"""MinTree takes an array(must be sorted in ascending order) and finds the
+   minimum height tree possible."""
 class MinTree(object):
 
     def __init__(self, array=None):
@@ -48,6 +49,6 @@ class MinTree(object):
 
 
 if __name__ == '__main__':
-    tree = MinTree([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-    print(tree.root.right.right.right)
-    #print(tree.height())
+    tree = MinTree([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+    print(tree.root)
+    print(tree.height())
