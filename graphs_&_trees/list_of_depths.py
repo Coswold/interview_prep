@@ -74,12 +74,6 @@ class BinarySearchTree(object):
             # Recursively descend to the node's right child, if it exists
             return self._find_parent_node_recursive(item, node.right, node)
 
-    def list_depths(self):
-        items = []
-        if not self.is_empty():
-            self._traverse_in_order_recursive(self.root, items.append)
-        return items
-
     def _traverse_in_order_recursive(self, node, visit):
         # Traverse left subtree, if it exists
         if node.left != None:
@@ -93,7 +87,6 @@ class BinarySearchTree(object):
 def create_level_ll(root, lists, level):
     if root == None:
         return
-    print(level)
     if len(lists) == level:
         list = LinkedList()
         lists.append(list)
@@ -106,7 +99,6 @@ def create_level_ll(root, lists, level):
 
 if __name__ == '__main__':
     tree = BinarySearchTree([5, 6, 3, 8, 4, 10, 1, 2])
-    print(tree.root.right)
     listsll = []
     create_level_ll(tree.root, listsll, 0)
     print(listsll)
