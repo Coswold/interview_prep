@@ -2,19 +2,22 @@
 
 from binary_tree import BinarySearchTree
 
-def balanced(root, left, right):
-    if root.left != None:
-        left += 1
-        balanced(root.left, left, right)
-    if root.right != None:
-        right += 1
-        balanced(root.right, left, right)
+def get_height(root):
+    if root == None:
+        return -1
+    return max(get_height(root.left), get_height(root.right) + 1)
+
+def balanced(root):
+    if root == None:
+        return True
+    height_diff = abs(get_height(root.left) - get_height(root.right))
+    if height_diff > 1:
+        return False
     else:
-        return right == left
+        return balanced(root.left) and balanced(root.right)
 
 
 if __name__ == '__main__':
-    tree = BinarySearchTree([1, 2, 0.5, 3, 4, 5, 6])
-    left = 0
-    right = 0
-    print(balanced(tree.root, left, right))
+    tree = BinarySearchTree([5, 2, 7, 3, 1, 6, 8])
+    print(balanced(tree.root))
+    print(get_height(tree.root))
