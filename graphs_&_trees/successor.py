@@ -25,7 +25,7 @@ def leftMost(node):
         return None
     while node.left != None:
         node = node.left
-    return node
+    return node.data
 
 
 if __name__ == '__main__':
@@ -33,4 +33,5 @@ if __name__ == '__main__':
     n1.data = 8
     n1.left = BinaryNodeParent(n1, 5)
     n1.right = BinaryNodeParent(n1, 10)
+    n1.left.right = BinaryNodeParent(n1.left, 7)
     print(successor(n1.left))
